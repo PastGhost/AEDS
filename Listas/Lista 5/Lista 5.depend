@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1446646380 source:c:\users\felipe\desktop\trabalho\listas\lista 5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+
+1474548376 c:\users\felipe\desktop\trabalho\listas\lista 5\queue.h
+
+1475106204 source:c:\users\felipe\desktop\trabalho\listas\lista 5\queue_with_linked_list.c
+	"queue.h"
+	<stdlib.h>
+
