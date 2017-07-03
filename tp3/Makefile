@@ -1,4 +1,4 @@
-TARGET = tp2
+TARGET = tp3
 LIBS = -lm
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -std=c99

@@ -1,5 +1,5 @@
-#ifndef BRUTE_FORCE_SOLUTION_H_
-#define BRUTE_FORCE_SOLUTION_H_
+#ifndef DYNAMIC_SOLUTION_H_
+#define DYNAMIC_SOLUTION_H_
 
 #include "street.h"
 
