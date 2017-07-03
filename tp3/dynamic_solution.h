@@ -3,12 +3,12 @@
 
 #include "street.h"
 
-void heapify(Pair street[], unsigned long size, unsigned long parent);
+void heapify(Pair street[], long size, long parent);
 
-void sort_pair(Pair street[], unsigned long size);
+void sort_pair(Pair street[], long size);
 
-unsigned long find_ceil(unsigned long *sequence,unsigned long key,unsigned long low,unsigned long high);
+long find_ceil(long *sequence,long key,long low,long high);
 
-unsigned long LIS(Pair street[],unsigned long size);
+long LIS(Pair street[],long size);
 
 #endif

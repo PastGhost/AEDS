@@ -3,11 +3,11 @@
 #include "dynamic_solution.h"
 
 
-void heapify(Pair street[], unsigned long size, unsigned long parent) {
+void heapify(Pair street[], long size, long parent) {
 	Pair aux;
-    unsigned long largest = parent;  
-    unsigned long left_child = 2*parent + 1;
-    unsigned long right_child = 2*parent + 2;
+    long largest = parent;  
+    long left_child = 2*parent + 1;
+    long right_child = 2*parent + 2;
 
     if (left_child < size && street[left_child].even > street[largest].even)
         largest = left_child;
@@ -17,15 +17,15 @@ void heapify(Pair street[], unsigned long size, unsigned long parent) {
 
     if (largest != parent) {
 
-        aux = street[0];
-        street[0] = street[parent];
+        aux = street[largest];
+        street[largest] = street[parent];
         street[parent] = aux;
 
         heapify(street, size, largest);
     }
 }
 
-void sort_pair(Pair street[], unsigned long size) {
+void sort_pair(Pair street[], long size) {
 	Pair aux;
 	long i;
     for (i = (size / 2) - 1; i >= 0; i--)
@@ -41,25 +41,27 @@ void sort_pair(Pair street[], unsigned long size) {
     }
 }
 
-unsigned long find_ceil(unsigned long *sequence,unsigned long key,unsigned long low,unsigned long high) {
-	while(high >= low){
-		unsigned long mid = (low + high)/2;
-		if(sequence[mid] >= key)
-			high = mid -1;
-		else
-			low = mid + 1;
-
-	}
-	return high;
+long find_ceil(long *sequence,long key,long low,long high) {
+    while (high - low  > 1) {
+    	int mid = low + (high - low)/2;
+  		if (sequence[mid] >= key)
+        	high = mid;
+    	else
+        	low = mid;
+    }
+ 
+    return high;
 }
 
-unsigned long LIS(Pair street[],unsigned long size) {
 
-	unsigned long *sequence = (unsigned long*) malloc(sizeof(unsigned long)*size);
+long LIS(Pair street[],long size) {
+
+	long *sequence = (long*) malloc(sizeof(long)*size);
 	sequence[0] = street[0].uneven;
-	unsigned long length = 1;
+	long length = 1;
+
 	
-	for(unsigned long i = 1; i < size; i++) {
+	for(long i = 1; i < size; i++) {
 		if(street[i].uneven < sequence[0] )
 			sequence[0] = street[i].uneven;
 		else if(street[i].uneven > sequence[length -1]  ){
@@ -68,6 +70,7 @@ unsigned long LIS(Pair street[],unsigned long size) {
 		}
 		else
 			sequence[find_ceil(sequence,street[i].uneven,0,length -1)] = street[i].uneven;
+
 	}
 
 	free(sequence);

@@ -3,11 +3,11 @@
 
 #include "street.h"
 
-unsigned long flag_number(int pair_flag[], unsigned long size);
+long flag_number(int pair_flag[], long size);
 
-unsigned long recursive_enumerate(Pair street[],unsigned long size,unsigned long pos,int pair_flag[]);
+long recursive_enumerate(Pair street[],long size,long pos,int pair_flag[]);
 
-unsigned long enumerate(Pair street[],unsigned long size);
+long enumerate(Pair street[],long size);
 
 
 #endif

@@ -6,12 +6,13 @@
 #include "greedy_solution.h"
 
 int main() {
-	unsigned long pair_number, max_flags;
+	long pair_number, max_flags;
 	char solution_type;
+	long *distance;
 	Pair *street;
 	
 	scanf("%c",&solution_type);
-	scanf("%lu",&pair_number);
+	scanf("%ld",&pair_number);
 	
 	street = malloc(sizeof(Pair)*pair_number);
 	read_street(street,pair_number);
@@ -20,15 +21,23 @@ int main() {
 		case'd':
 			sort_pair(street,pair_number);
 			max_flags = LIS(street,pair_number);
-			printf("%lu\n",max_flags );
+			printf("%ld\n",max_flags );
 			break;
 		case'b':
 			max_flags = enumerate(street,pair_number);
-			printf("%lu\n",max_flags );
+			printf("%ld\n",max_flags );
 			break;
 		case'g':
+			distance = malloc(sizeof(long)*pair_number);
+			calculate_distance(street,pair_number,distance);
+			sort_pair_distance(street,pair_number,distance);
+			max_flags = create_solution(street,pair_number);
+			printf("%ld\n",max_flags );
+			free(distance);
 		default:
 			break;
 
 	}
+
+	free(street);
 }
