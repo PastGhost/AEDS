@@ -5,7 +5,7 @@
 
 int main() {
 	srand(time(NULL));
-	long l = 1000000000;
+	long l = 100000000;
 	// long m;
 	// int *x = calloc(l,sizeof(int));
 	// int *y = calloc(l,sizeof(int));
@@ -23,8 +23,9 @@ int main() {
 	// 	printf("%ld\n",m);
 
 	// }
-
-	for(long i = 0; i < l/10;i++) {
+	printf("d\n");
+	printf("%ld\n",l);
+	for(long i = 0; i < l;i++) {
 		printf("%ld %ld\n",i,l - i);
 
 	}
